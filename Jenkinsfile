@@ -1,6 +1,6 @@
 pipeline {
     agent any 
-     paralell {
+     
     stages {
         stage('Build') { 
             steps {
@@ -10,7 +10,7 @@ pipeline {
         stage('Test') { 
             steps {
                 // 
-            }}
+            }
         }
         stage('Deploy') { 
             steps {
