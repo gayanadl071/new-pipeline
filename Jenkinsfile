@@ -1,20 +1,15 @@
 pipeline {
-    agent any {
-     }
+    agent any
+
     stages {
-        stage('Build') { 
-            steps {
-                // 
+        stage('Deploy') {
+            when {
+              expression {
+                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
+              }
             }
-        }
-        stage('Test') { 
             steps {
-                // 
-            }
-        }
-        stage('Deploy') { 
-            steps {
-                // 
+                sh 'make publish'
             }
         }
     }
